@@ -12,6 +12,7 @@ python:
 
 # Command to install dependencies
 install:
+  - apt-get pandoc
   - docker pull climbsrocks/auto_ml_tests:0.0.1
   - pip install coveralls
 
