@@ -15,7 +15,7 @@ install:
   # - apt-get pandoc
   - docker pull climbsrocks/auto_ml_tests:0.0.1
   - pip install coveralls
-  - pip install pypandoc
+  # - pip install pypandoc
 
 # Command to run tests
 script: docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it climbsrocks/auto_ml_tests:0.0.1 python setup.py nosetests
