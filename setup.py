@@ -19,15 +19,17 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-import pypandoc
 
-
-long_description = pypandoc.convert('README.md', 'rst')
 
 here = path.abspath(path.dirname(__file__))
-# Get the long description from the README file
-# with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-#     long_description = f.read()
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except ImportError:
+    print('pypandoc (and possibly pandoc) are not installed. This means the PyPi package info will be formatted as .md instead of .rst. If you are encountering this before uploading a PyPi distribution, please install these')
+    # Get the long description from the README file
+    with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+        long_description = f.read()
 
 
 
